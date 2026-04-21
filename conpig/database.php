@@ -1,27 +1,14 @@
 <?php
+//database dtails
+$dbhost = "localhost:8080";
+$dbname = "comshop";
+$username = "root";
+$password = ""; //empty sa ni.. kay ambot
 
+$dsn = "mysql:dbhost=$dbhost;dbname=$dbname;charset=utf8mb4";
 
-define('DB_HOST', 'localhost');
-define('DB_NAME', 'product_api');
-define('DB_USER', 'root');
-define('DB_PASS', '');
+//pdo object
 
-function connectDB(): ?PDO {
-    try {
-        $pdo = new PDO(
-            "mysql:host=" . DB_HOST . ";dbname=" . DB_NAME . ";charset=utf8",
-            DB_USER,
-            DB_PASS
-        );
-
-        $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-
-        $pdo->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
-
-        return $pdo;
-
-    } catch (PDOException $e) {
-       
-        return null;
-    }
-}
+$pdo = new PDO($dsn, $username, $password);
+//this file is for connecting to the database, and we will include this file in our products.php file to use the $pdo object for database operations. 
+?>
