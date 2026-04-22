@@ -2,7 +2,7 @@
 
 require_once "database.php";
 
-//get products from database
+//get products from databasees
 $sql = "SELECT * FROM products";
 $pdoStatement = $pdo->prepare($sql);
 
